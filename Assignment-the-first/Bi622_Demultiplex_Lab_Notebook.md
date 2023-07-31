@@ -1,8 +1,8 @@
 Author: Evelyn Wong
 Date Created: 2023-07-26
-Last Updated: 2023-07-27
+Last Updated: 2023-07-31
 
-#2023-07-26
+__2023-07-26__
 Performing initial data exploration. 
 Leslie showed the intial number of lines in the files (over 2 billion lines) which took quite a while. 
 We discussed in-class about what files are which:
@@ -77,4 +77,24 @@ So 6 files. Matched has 2 each. Unknown has 1. Unmatched has 1.
 
 Oh. Gitignore doesn't look at the fastq files. Have to rename my unit tests...whoops.
 
+__7/31/2023__
 
+Getting the count of N's via command line.
+
+Want to also list out the file name. Reviewing how to do while loop on bash. It's been a while. 
+Read in the file name, zcat it, sed for the sequence line, get N's, and count. 
+
+
+ls -1 ./1294_S1_L008_R2_001.fastq.gz | while read file; do echo $file; zcat $file | sed -n 2~4p | grep "N" | wc -l; done 
+3976613 
+ls -1 ./1294_S1_L008_R3_001.fastq.gz | while read file; do echo $file; zcat $file | sed -n 2~4p | grep "N" | wc -l; done
+3328051
+Use a regular expression instead to get one line?
+ls -1 ./1294_S1_L008_R[2-3]_001.fastq.gz | while read file; do echo $file; zcat $file | sed -n 2~4p | grep "N" | wc -l; done
+./1294_S1_L008_R2_001.fastq.gz
+3976613
+./1294_S1_L008_R3_001.fastq.gz
+3328051
+It works~
+
+To answer the quality score cut-off, Temi mentioned that we should look at the graphs that we outputted and decide from there. Have to justify. 
