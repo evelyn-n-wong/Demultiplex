@@ -12,6 +12,12 @@
 
 2. Per-base NT distribution
     1. Use markdown to insert your 4 histograms here.
+    ![Read1](https://github.com/evelyn-n-wong/Demultiplex/assets/137024803/ab879c7f-48de-4a8a-9d4a-e457079576bc)
+![Index1](https://github.com/evelyn-n-wong/Demultiplex/assets/137024803/b946b2e9-300d-46aa-bea3-250a3a854d46)
+![Index2](https://github.com/evelyn-n-wong/Demultiplex/assets/137024803/87c64dec-c01a-4c66-9b4d-013e3a0b7c84)
+![Read2](https://github.com/evelyn-n-wong/Demultiplex/assets/137024803/caf81c53-f6df-4174-847b-e63efc203a40)
+
+    
     2. A good cut-off score for indices, because they are much smaller (only 8 nt), would be Q35 per base. If they have even one poor score listed, then they should be discarded or placed into the "unknown" bin as it would affect the entire sequence. For the reads, a cut-off score of ~30 for the mean position of all bases. This seems to be consistent with the graph as well.  
     3. Command used: ls -1 ./1294_S1_L008_R[2-3]_001.fastq.gz | while read file; do echo $file; zcat $file | sed -n 2~4p | grep "N" | wc -l; done
         ./1294_S1_L008_R2_001.fastq.gz
