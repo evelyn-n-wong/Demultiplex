@@ -36,9 +36,9 @@ def validate_base_seq(seq: str, RNAflag: bool = False) -> bool:
     #set_seq = set(seq)
     return set(seq)<=(RNA_bases if RNAflag else DNA_bases)
 
-def calc_median(sorted_sl: list) -> float:
+def calc_median(sorted_sl: list) -> list:
     '''This function takes in a one dimensional list and returns one median value'''
-    median: float
+    median: int
     s_length = len(sorted_sl) // 2
     if len(sorted_sl) % 2 == 0:
         median = ((sorted_sl[s_length-1] + sorted_sl[s_length])/2)
@@ -53,9 +53,9 @@ def gc_content(sequence):
     length_DNA = len(sequence)
     return (sum_GC/length_DNA)
 
-def oneline_fasta(input_file, output_file):
+def oneline_fasta(input_file):
     '''This function takes in a multiline FASTA file and returns a one-line fasta'''
-    with open(input_file, "r") as fh, open(output_file, "w") as f_out:
+    with open(input_file, "r") as fh, open({input_file}_oneline.fa, "w") as f_out:
 #    fh.readline() # gets the first line. Also, everytime this is called, subsequent lines are read sequentially.
         x: int = 0 #make sure it's the first line else
         seq: str = ""
