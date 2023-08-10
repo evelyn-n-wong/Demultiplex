@@ -23,7 +23,7 @@ def get_args():
 
 intialize variable of arguments to be used in later functions
 
-def rev_complement():
+def rev_complement(sequence:str):
 '''This function takes in a sequence and returns the reverse complement of the sequence as a string'''
 intialize empty string as reverse_complement to store the sequence 
     
@@ -32,7 +32,8 @@ intialize empty string as reverse_complement to store the sequence
 
     return reverse complement
     Input: ATCGATT
-    Output: TAGCTAA
+    Complement: TAGCTAA
+    Reverse Complement: AATCGAT
 
 *Note: The following functions could also be replaced by importing the bioinfy.py module instead of having it here*
 
@@ -72,22 +73,29 @@ def append_to_header(takes in files):
             break
         get headers of all files
         get sequences of all files (Note that for R3, call reverse_complement)
-        get plus lines
+        get plus lines -> not necessary. When writing into new file, change it just "+\n"
         get quality scores
 
         Conditions:
-        if indices of R2 match R3 "R2==R3"
-            increment matched 
-            write to matched file for R1 
-            write to matched file for R4
-        elif indices of R2 has an 'N' or is low quality (<20):
+        
+        if indices of R2 has an 'N' or is low quality (<30):
+        ''' account for corresponding records that may match but have low quality '''
             increment unknown
             write to unknown file for R1
             write to unknown file for R4
+        elif indices of R3 has an 'N' or is low quality (<30):
+        ''' account for reads of the second index which can also have unknown bases or low qual scores '''
+            increment unknown
+            write to unknown file for R1 
+            write to unknown file for R4
+        elif indices of R2 match R3 "R2==R3"
+            increment matched 
+            write to matched file for R1 
+            write to matched file for R4
         else indices in R2 or R3 is unmatched !=
             increment unmatched
-            write to unknown file for R1
-            write to unknown file for R4
+            write to unmatched file for R1
+            write to unmatched file for R4
     All outputs would be files of their specific output category
     Input1: NNNNNNNNNNNAANNNN
     Output: write to unknown file
