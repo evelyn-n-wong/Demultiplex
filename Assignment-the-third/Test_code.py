@@ -217,7 +217,7 @@ for j in hopped_in:
     print(f'{j}\t{hopped_in[j]}\tPercent:{(hopped_in[j]/total_counts)*100}')
 
 # Summary of Outputs to File 
-with open("Statistics_Summary.md", "wt") as stat_sum:
+with open("Statistics_Summary.txt", "wt") as stat_sum:
     stat_sum.write(f'---Summary Table---\n')
     stat_sum.write(f'Total Dual-matched: {num_matched}\nTotal Index Hopped: {num_unmatched}\nTotal Unknown: {num_unknown}\n')
     stat_sum.write(f'Total Index Hits {total_counts}\n')
