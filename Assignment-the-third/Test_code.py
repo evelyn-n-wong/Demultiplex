@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # Author: Evelyn Wong
 # Date Created: 2023-08-02
-# Last Updated: 2023-08-03
+# Last Updated: 2023-08-10
 # importing modules
 import argparse
 import gzip
@@ -224,12 +224,12 @@ with open("Statistics_Summary.txt", "wt") as stat_sum:
     stat_sum.write(f'---Percentages---\n')
     stat_sum.write(f'Percent Matched: {percent_matched}\nPercent Hopped: {percent_hopped}\nPercent Unknown: {percent_unknown}\n')
     stat_sum.write(f'---Possible Indexed Matched Pairs:---\n')
-    stat_sum.write("Dual-Matched Pairs")
+    stat_sum.write(f'---Dual-Matched Pairs---\n')
     for k in matched_in:
-        stat_sum.write(f'{k}\t{matched_in[k]}\tPercent:{(matched_in[k]/total_counts)*100}%')
-    stat_sum.write(f'\nIndex-Hopped Pairs')
+        stat_sum.write(f'{k}\t{matched_in[k]}\tPercent:{(matched_in[k]/total_counts)*100}%\n')
+    stat_sum.write(f'\n---Index-Hopped Pairs---\n')
     for l in hopped_in:
-        stat_sum.write(f'{l}\t{hopped_in[l]}\tPercent:{(hopped_in[l]/total_counts)*100}%')
+        stat_sum.write(f'{l}\t{hopped_in[l]}\tPercent:{(hopped_in[l]/total_counts)*100}%\n')
 
 # Plotting Matched Index-Pairs Distributions
 

@@ -17,4 +17,5 @@ dir3=/projects/bgmp/shared/2017_sequencing/1294_S1_L008_R3_001.fastq.gz
 dir4=/projects/bgmp/shared/2017_sequencing/1294_S1_L008_R4_001.fastq.gz
 indices=/projects/bgmp/shared/2017_sequencing/indexes.txt
 
-/usr/bin/time -v /projects/bgmp/evew/bioinfo/Bi622/Demultiplex/Assignment-the-third/Test_code.py -r1 $dir1 -r2 $dir2 -r3 $dir3 -r4 $dir4 -i $indices
+#/usr/bin/time -v /projects/bgmp/evew/bioinfo/Bi622/Demultiplex/Assignment-the-third/Test_code.py -r1 $dir1 -r2 $dir2 -r3 $dir3 -r4 $dir4 -i $indices
+/usr/bin/time -v /projects/bgmp/evew/bioinfo/Bi622/Demultiplex/Assignment-the-third/demultiplex.py -r1 $dir1 -r2 $dir2 -r3 $dir3 -r4 $dir4 -i $indices

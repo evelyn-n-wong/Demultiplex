@@ -55,7 +55,7 @@ def gc_content(sequence):
 
 def oneline_fasta(input_file):
     '''This function takes in a multiline FASTA file and returns a one-line fasta'''
-    with open(input_file, "r") as fh, open({input_file}_oneline.fa, "w") as f_out:
+    with open(input_file, "r") as fh, open(f'{input_file}_oneline.fa', "w") as f_out:
 #    fh.readline() # gets the first line. Also, everytime this is called, subsequent lines are read sequentially.
         x: int = 0 #make sure it's the first line else
         seq: str = ""
